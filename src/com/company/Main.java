@@ -36,10 +36,6 @@ public class Main {
         replace.add("my");
         replace.add("am");
 
-//variable to generate random number
-        int hedge= r.nextInt(hedges.size());
-        int qualify = r.nextInt(qualifiers.size());
-
 //Start the program with a welcome message
         System.out.println("Welcome to the Chat-bot.");
 
@@ -50,6 +46,10 @@ public class Main {
 
 //loop untill user inputs quit
         while(!question.equals("quit") && count < 15) {
+
+//variable to generate random number
+            int hedge= r.nextInt(hedges.size());
+            int qualify = r.nextInt(qualifiers.size());
 
 //split the user input into array and set it to userInput array
             String [] userInput = question.split(" ");
@@ -101,16 +101,22 @@ public class Main {
             question = input.nextLine();
         }
     }
-//
+//randomGen method that takes two parameters (a hashset, random number) to generate random answer from the hashSet list
     public static String randomGen(HashSet<String> random, int ran ){
         int i =0;
+        //setting a string array with the size of a hashset
         String []elem = new String[random.size()];
+        //for loop to get the elements form random hashSet
         for(String a : random)
         {
+            //setting the string array to the elements for random
             elem[i] = a;
             i++;
         }
+        // setting the string from the hashset to elem and elem array to answer as per the random number
         String answer = elem[ran];
+
+        // returning the string generated as per the random number
         return answer;
     }
 }
